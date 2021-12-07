@@ -1,0 +1,19 @@
+<h1>
+    Id: <%= @profile.id %>
+</h1>
+<br />
+<div>
+  <h1 style="margin-bottom: 1px">Reviews:</h1>
+  <% @profile_movies.each do |movie| %>
+  <ul>
+    <li>
+      <strong>
+        Movie: <%= link_to movie.movie, movie_path(movie) %>
+        &nbsp;
+        Rating: <%= movie.rating %>
+      </strong>
+    </li>
+  </ul>
+  <% end %>
+  <h1><%= link_to 'Back', movies_path %></h1>
+</div>

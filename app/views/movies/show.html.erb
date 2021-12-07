@@ -1,0 +1,17 @@
+<p>
+  <strong>Movie:</strong>
+  <%= @movie.movie %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @movie.rating %>
+</p>
+
+<p>
+  <strong>Review:</strong>
+  <%= @movie.review %>
+</p>
+
+<%= link_to 'Edit', edit_movie_path(@movie) %> |
+<%= link_to 'Back', movies_path %>

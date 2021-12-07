@@ -1,0 +1,29 @@
+<% def nav_link(link_text, link_path)
+  class_name = current_page?(link_path) ? 'current' : ''
+
+  content_tag(:span, :class => class_name) do
+    link_to link_text, link_path
+  end
+end %>
+
+<nav>
+<% if !user_signed_in? %>
+    <%= nav_link 'home', root_path %>
+
+    <%= nav_link "movies", movies_path %>
+
+    <%= nav_link "signin", user_session_path %>
+
+    <%= nav_link "signup", new_user_registration_path %>
+<% else %>
+    <%= nav_link 'home', root_path %>
+
+    <%= nav_link "movies", movies_path %>
+
+    <%= nav_link "new review", new_movie_path %>    
+    
+    <%= nav_link "edit", edit_user_registration_path %>
+
+    <a rel="nofollow" data-method="delete" href="/users/sign_out">log out</a>
+<% end %>
+</nav>

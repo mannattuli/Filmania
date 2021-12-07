@@ -1,0 +1,50 @@
+<h1>Movies</h1>
+
+<% if user_signed_in? %>
+
+<% @movies.each do |movie| %>
+<table style="margin-bottom:0px">
+  <thead>
+    <tr>
+      <th>Movie</th>
+      <th>Rating</th>
+      <th>Review</th>
+      <th>User Id</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><%= movie.movie %></td>
+        <td><%= movie.rating %></td>
+        <td><%= movie.review %></td>
+        <td><a href="profile/<%= movie.user_id %>">Profile: <%= movie.user_id %></a></td>
+      </tr>
+  </tbody>
+</table>
+
+<div id="link-new">      
+  <% if movie.user == current_user %>
+    <%= link_to 'Show', movie %>
+    &nbsp;
+    <%= link_to 'Edit', edit_movie_path(movie) %>
+    &nbsp;
+    <%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <br /><br />
+  <% else %>
+    <%= link_to 'Show', movie %>
+    <br /><br />
+  <% end %>
+</div>
+<% end %>
+
+<% else %>
+<h1>
+    <%= link_to "signin", user_session_path %>
+
+    <%= link_to "signup", new_user_registration_path %>
+</h1>
+<% end %>
+
+<br>
+
+<%= link_to 'New Movie', new_movie_path %>

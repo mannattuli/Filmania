@@ -1,0 +1,52 @@
+<style>
+body{
+    background-image: linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.9)),url(/assets/background.jpg);
+}
+</style>
+
+<h1>Filmania</h1>
+
+<p>
+    Filmania is a social platform for reviewing films you've watched. Check out what your friends are watching and read their reviews!
+</p>
+
+<div id="links">
+<% if !user_signed_in? %>
+
+    <%= link_to "signin", user_session_path %>
+
+    <%= link_to "signup", new_user_registration_path %>
+
+<% else %>
+
+    <%= link_to "movies", movies_path %>
+
+    <%= link_to "new review", new_movie_path %>    
+
+    <a rel="nofollow" data-method="delete" href="/users/sign_out">log out</a>
+
+<% end %>
+</div>
+<br /><br />
+<h2>Top Posts</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Movie</th>
+      <th>Rating</th>
+      <th>Review</th>
+      <th>User Id</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td>Social Network</td>
+        <td>9</td>
+        <td>Very interesting.</td>
+        <td><a href="profile/2">Profile: 2</a></td>
+        <td>Show</td>
+      </tr>
+  </tbody>
+</table>
