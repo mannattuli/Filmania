@@ -1,17 +1,25 @@
-<p>
-  <strong>Movie:</strong>
-  <%= @movie.movie %>
-</p>
+<% if user_signed_in? %>
+  <p>
+    <strong>Movie:</strong>
+    <%= @movie.movie %>
+  </p>
 
-<p>
-  <strong>Rating:</strong>
-  <%= @movie.rating %>
-</p>
+  <p>
+    <strong>Rating:</strong>
+    <%= @movie.rating %>
+  </p>
 
-<p>
-  <strong>Review:</strong>
-  <%= @movie.review %>
-</p>
+  <p>
+    <strong>Review:</strong>
+    <%= @movie.review %>
+  </p>
 
-<%= link_to 'Edit', edit_movie_path(@movie) %> |
-<%= link_to 'Back', movies_path %>
+  <%= link_to 'Edit', edit_movie_path(@movie) %> |
+  <%= link_to 'Back', movies_path %>
+<% else %>
+  <h1>
+    <%= link_to "signin", user_session_path %>
+
+    <%= link_to "signup", new_user_registration_path %>
+  </h1>
+<% end %>
