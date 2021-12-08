@@ -22,7 +22,7 @@ end %>
 
     <%= nav_link "new review", new_movie_path %>    
     
-    <%= nav_link "edit", edit_user_registration_path %>
+    <%= nav_link current_user.username, edit_user_registration_path %>
 
     <a rel="nofollow" data-method="delete" href="/users/sign_out">log out</a>
 <% end %>

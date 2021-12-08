@@ -62,8 +62,10 @@ class MoviesController < ApplicationController
   end
 
   def correct_user 
-    @movie = current_user.movies.find_by(id: params[:id])
-    redirect_to movie_path, notice: "Cannot edit this" if @movie.nil?
+    if current_user.id != 1
+      @movie = current_user.movies.find_by(id: params[:id])
+      redirect_to movie_path, notice: "Cannot edit this" if @movie.nil?
+    end
   end
 
   private
