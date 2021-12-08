@@ -1,4 +1,7 @@
+<% if user_signed_in? %>
 <h1>
+    Username: <%= @profile.username %>
+    <br />
     Id: <%= @profile.id %>
 </h1>
 <br />
@@ -17,3 +20,10 @@
   <% end %>
   <h1><%= link_to 'Back', movies_path %></h1>
 </div>
+<% else %>
+  <h1>
+    <%= link_to "signin", user_session_path %>
+
+    <%= link_to "signup", new_user_registration_path %>
+  </h1>
+<% end %>
