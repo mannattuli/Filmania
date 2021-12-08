@@ -8,7 +8,6 @@ body {
 
 main {
   position: relative;
-  max-width: 56em;
   padding: 0em 2em;
   margin: 0 auto;
   box-sizing: border-box;
@@ -30,9 +29,21 @@ ul {
   padding: 0px;
 }
 
+@media only screen and (max-width: 800px) {
+  table {
+    min-width: 400px;
+    max-width: 400px;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  table {
+    min-width: 700px;
+    max-width: 700px;
+  }
+}
+
 table {
-  min-width: 700px;
-  max-width: 700px;
   background-color: rgb(98, 124, 207);
   margin-bottom: 10px;
   border-radius: 10px;
