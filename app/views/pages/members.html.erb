@@ -1,0 +1,37 @@
+<% if user_signed_in? %>
+    <% @users = User.all %>
+    <% @movies = Movie.all %>
+    <% mostUser = [] %>
+    <% @movies.each do |movie| %>
+        <% if movie.user_id == 5 %>
+            <% mostUser.append("a") %>
+        <% end %>
+    <% end %>
+
+    <h3>Popular Users</h3>
+    <ul id="popular">
+        <li>
+            <a href="profile/5">shashank</a>
+            <br />
+            Number of Reviews: <%= mostUser.length() %>
+        </li>
+    </ul>    
+
+    <h3>All Users</h3>
+    <% @users.each do |user| %>
+        <% z = [] %>
+        <% @movies.each do |movie| %>
+            <% if movie.user_id == user.id %>
+                <% z.append("a") %>
+            <% end %>
+        <% end %>
+        <ul>
+            <li>
+                <a href="profile/<%= user.id %>"><%= user.username %></a>
+                <br />
+                Number of Reviews: <%= z.length() %>
+            </li>
+        </ul>
+    <% end %>
+    <%= link_to 'New Review', new_movie_path %>
+<% end %>

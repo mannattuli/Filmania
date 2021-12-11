@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'show/index'
   devise_for :users
   root 'pages#index'
+  get "/members", to: "pages#members"
   get "/about", to: "pages#about"
   get "/contact", to: "pages#contact"
   resources :movies
