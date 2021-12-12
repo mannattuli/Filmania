@@ -22,13 +22,17 @@
   </tbody>
 </table>
 
-<div id="link-new">      
-  <% if movie.user == current_user %>
+<div id="link-new">
+
+  <% if current_user == 1 %>
+    <%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+
+  <% if movie.user == current_user || current_user == 1 %>
     <%= link_to 'Show', movie %>
     &nbsp;
     <%= link_to 'Edit', edit_movie_path(movie) %>
     &nbsp;
-    <%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %>
     <br /><br />
   <% else %>
     <%= link_to 'Show', movie %>
