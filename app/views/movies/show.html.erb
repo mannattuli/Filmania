@@ -14,8 +14,23 @@
     <%= @movie.review %>
   </p>
 
+  <p>
+    <%= @movie.likes.count %> <%= (@movie.likes.count) == 1 ? 'Like' : 'Likes'%>
+  </p>
+
   <%= link_to 'Edit', edit_movie_path(@movie) %> |
   <%= link_to 'Back', movies_path %>
+
+  <% pre_like = @movie.likes.find {|like| like.user_id == current_user.id} %>
+
+  <% if pre_like %>
+    <br />
+    <a href="/movies/<%= @movie.id %>/likes/<%= pre_like.id %>" data-method="delete"><button>Unlike</button></a>
+  <% else %>
+    <br />
+    <%= button_to 'Like', movie_likes_path(@movie), method: :movie %>
+  <% end %>
+
 <% else %>
   <h1>
     <%= link_to "signin", user_session_path %>

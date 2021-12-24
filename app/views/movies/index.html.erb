@@ -9,6 +9,7 @@
       <th>Movie</th>
       <th>Rating</th>
       <th>Review</th>
+      <th>Likes</th>
       <th>User Id</th>
     </tr>
   </thead>
@@ -17,6 +18,7 @@
         <td><%= movie.movie %></td>
         <td><%= movie.rating %></td>
         <td><%= movie.review %></td>
+        <td><%= movie.likes.count %> <%= (movie.likes.count) == 1 ? 'Like' : 'Likes'%></td>
         <td><a href="profile/<%= movie.user_id %>">Profile: <%= movie.user_id %></a></td>
       </tr>
   </tbody>

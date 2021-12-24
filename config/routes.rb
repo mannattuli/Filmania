@@ -10,4 +10,7 @@ Rails.application.routes.draw do
   resources :movies
   resources :profile
   resources :film
+  resources :movies do
+    resources :likes
+  end  
 end
