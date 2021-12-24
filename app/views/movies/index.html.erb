@@ -1,8 +1,8 @@
 <h1>Movies</h1>
 
 <% if user_signed_in? %>
-
-<% @movies.each do |movie| %>
+<% @sorted = @movies.order('created_at DESC').collect %>
+<% @sorted.each do |movie| %>
 <table style="margin-bottom:0px">
   <thead>
     <tr>
